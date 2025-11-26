@@ -1,0 +1,644 @@
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zé do Código</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="../../assets//logo_ico.png" type="image/x-icon">
+    <style>
+        /* =========================================
+           ESTILOS GERAIS DO PORTFÓLIO (Zé do Código)
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #FFCC00;
+            /*------------------------------cor do cabeçalho*/
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1rem 2rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: black;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            padding: 10px 30px 10px 30px;
+            border: black 1px solid;
+            border-radius: 8px;
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            margin: 0 0 20px 0;
+            color: black;
+            background-color: #FFCC00;
+
+        }
+
+        .nav-links a:hover {
+            color: white;
+            background-color:black;
+        }
+
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            width: 100%;
+        }
+
+        .employee-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .employee-header h1 {
+            font-size: 2.5rem;
+            /*color: black;*/
+            margin-bottom: 0.5rem;
+        }
+
+        .employee-header p {
+            color: #6b7280;
+            font-size: 1.1rem;
+        }
+
+        /* --- AQUI ESTÁ A CORREÇÃO DA ROLAGEM --- */
+
+        /* 1. O container externo precisa ter altura fixa */
+        .project-demo {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            height: 600px;
+            /* Altura fixa para simular a tela */
+            max-height: 80vh;
+            /* Garante que caiba na tela do usuário */
+            overflow: hidden;
+        }
+
+        .demo-frame {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            height: 100%;
+            /* Ocupa 100% dos 600px definidos acima */
+            overflow: hidden;
+            position: relative;
+            background-color: #f8f9fa;
+            /* Cor de fundo do site interno */
+        }
+
+        /* =========================================
+           ESTILOS DO SITE INTERNO (Maykow)
+           ISOLADOS DENTRO DE .demo-content
+           ========================================= */
+
+        .demo-content {
+            /* 2. O conteúdo interno deve rolar */
+            height: 100%;
+            overflow-y: scroll;
+            /* Força a barra de rolagem vertical */
+            scroll-behavior: smooth;
+
+
+
+        }
+
+        /* 3. Estilização da Barra de Rolagem (Para ficar bonita) */
+        .demo-content::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .demo-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .demo-content::-webkit-scrollbar-thumb {
+            background: #FFCC00;
+            /* Amarelo do tema do Marcello */
+            border-radius: 5px;
+            border: 2px solid #f1f1f1;
+        }
+
+        .demo-content::-webkit-scrollbar-thumb:hover {
+            background: #d4a000;
+        }
+
+        /* Footer Geral (Zé do Código) */
+        body>footer {
+            background-color: #111827;
+            color: #9ca3af;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: auto;
+        }
+
+        .logo_ze {
+            width: 5%;
+
+        }
+
+        footer p {
+            color: #FFCC00;
+        }
+
+
+        :root {
+            --branco-principal: #ffffff;
+            --cinza-secundario: #c0c0c0;
+            --botao-azul: #167bf7;
+            --cor-de-fundo: #00030c;
+            --fonte-principal: "Inter", sans-serif;
+            --botao-azul-efeito: #4597fa;
+
+        }
+
+
+
+        .corpo {
+            background-color: var(--cor-de-fundo);
+            color: var(--branco-principal);
+            font-family: var(--fonte-principal);
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .principal {
+            background-image: url("https://d29rinwu2hi5i3.cloudfront.net/article_media/d0cdfe71-eb0a-444c-9957-1b321e78582e/headline-nord-electro-5-angled.jpg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container {
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 50% 50%;
+
+
+        }
+
+        .container_botao {
+            color: var(--branco-principal);
+            background-color: var(--botao-azul);
+            border-radius: 8px;
+            padding: 1em;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 1em;
+        }
+
+
+        .container_aviso {
+            font-size: 12px;
+            color: var(--cinza-secundario);
+        }
+
+        .container_titulo {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .container_imagem {
+            margin: 1em 0 2em 0;
+            width: 30%;
+        }
+
+        .container_caixa {
+            margin: 0 12em;
+        }
+
+        /* Segunda secção */
+
+
+        .secundario_imagem {
+            width: 80%;
+        }
+
+        .secundario {
+            align-items: center;
+            margin: 0 10em;
+        }
+
+        .descricao_titulo {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--branco-principal);
+            margin-bottom: 0.1em;
+
+        }
+
+        .descricao_texto {
+            color: var(--cinza-secundario);
+        }
+
+        .secundario_botao {
+            display: inline-block;
+            margin-top: 1em;
+
+        }
+
+        .container_descricao {
+            padding: 7em;
+
+        }
+
+        .dispositivos_lista {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            margin: 5em 0;
+            gap: 2em;
+        }
+
+        .dispositivos {
+            text-align: center;
+        }
+
+        .dispositivos_titulo {
+            font-size: 48px;
+        }
+
+        .lista_item {
+            font-size: 32px;
+            color: var(--branco-principal);
+        }
+
+        /* Rodapé, minha versão */
+
+        .rodape {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 5em 0 5em 0;
+        }
+
+
+        .rodape_logo {
+            margin: 5em 0 2em 0;
+        }
+
+
+        .rodape_lista {
+            display: flex;
+
+            list-style: none;
+            margin: 2em 0 1em 0;
+
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--branco-principal);
+            margin-left: 1em;
+
+        }
+
+        .rodape_texto {
+            margin: 1em 10em 1em 10em;
+            text-align: center;
+
+
+            color: var(--cinza-secundario);
+            font-size: 14px;
+        }
+
+        .lista_link a:hover {
+            color: var(--botao-azul);
+        }
+
+        .lista_link a:active {
+            color: palevioletred;
+        }
+
+        .container_botao:hover {
+            background-color: var(--botao-azul-efeito);
+            color: var(--cor-de-fundo);
+        }
+
+
+
+
+ @media screen and (max-width: 1150px) {
+
+   
+    
+    .container {
+        display: flex;
+        flex-direction: column; 
+        height: auto; 
+        min-height: auto;
+        padding-bottom: 3em; 
+    }
+
+   
+    .principal {
+        background-image: none; 
+        padding-top: 2em;
+    }
+
+    .container_caixa {
+        margin: 0 1.5em; 
+    }
+
+    .container_titulo {
+        font-size: 24px; 
+    }
+
+    .container_imagem {
+        width: 80%; 
+        max-width: 350px;
+        margin: 2em auto;
+        display: block;
+    }
+
+    
+    .secundario {
+        margin: 0;
+        text-align: center;
+        padding: 0;
+    }
+
+    .secundario_imagem, 
+    .quarta_imagem {
+        width: 90%; 
+        height: auto;
+        margin-top: 2em;
+    }
+
+    .container_descricao {
+        padding: 2em 1.5em; 
+    }
+
+    .descricao_titulo {
+        font-size: 32px; 
+        line-height: 1.2;
+    }
+
+    
+    .dispositivos_lista {
+        display: flex;
+        flex-direction: column;
+        gap: 3em; 
+        padding: 0;
+    }
+
+    /* Rodapé */
+    .rodape {
+        margin: 2em 0;
+    }
+
+    .rodape_lista {
+        display: flex;
+        flex-direction: column; 
+        gap: 1.5em;
+        text-align: center;
+        padding: 0;
+    }
+
+    .lista_link a {
+        margin: 0; 
+        display: block;
+        padding: 10px; 
+    }
+
+    .rodape_texto {
+        margin: 2em 1.5em;
+        text-align: center;
+        width: auto;
+    }
+}
+
+ 
+
+
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img class="logo_ze" src="../../assets/logo.png">
+            <div class="logo">Zé do Código</div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Voltar</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="employee-header">
+            <h1>Maykow Roberto</h1>
+            <p>Projeto: Página de Financiamento de Teclados Nord</p>
+        </section>
+
+        <section class="project-demo">
+            <div class="demo-frame">
+                <div class="demo-content">
+
+                    <!--SITE COMEÇA AQUI  -->
+
+
+                    <article class="corpo">
+
+                        <section class="container principal">
+                            <div class="container_caixa">
+                                <h1 class="container_titulo">Com nosso Financiamento para Teclados Nord, você pode
+                                    conquistar seu
+                                    instrumento dos sonhos!</h1>
+
+
+                                <img class="container_imagem"
+                                    src="https://iconlogovector.com/uploads/images/2025/03/lg-67e50564e41fc-Nord-Keyboards.webp"
+                                    alt=" logotipo da Nord">
+
+                                <a class="container_botao" href="#" target="_blank">Faça sua simulação em 48x R$
+                                    670,00*</a>
+
+
+
+                                <p class="container_aviso">*O financiamento está sujeito à aprovação.</p>
+
+                            </div>
+
+                        </section>
+
+                        <!-- Segunda secção -->
+
+                        <section class="container secundario">
+
+                            <img class="secundario_imagem"
+                                src="https://www.stars-music.com/medias/nord/piano-5-73-hd-6-177740.png"
+                                alt=" imagem do musico com as mãos nas teclas">
+
+                            <div class="container_descricao">
+                                <h2 class="descricao_titulo">Tenha a Melhor Experiência</h2>
+
+                                <p class="descricao_texto">A Nord possui as melhores teclas. Tipos de Teclas (em
+                                    diferentes modelos): Hammer
+                                    Action (HA - simulação de piano), Semi-Weighted (SW - semi-pesadas), HP (Hammer
+                                    Action Portable).</p>
+                            </div>
+
+
+
+                        </section>
+
+                        <!-- terceira secção -->
+                        <div class="parte3">
+                            <section class="container secundario decricao2"> <!-- fiz a mesma configuração -->
+
+                                <div class="container_descricao">
+                                    <h2 class="descricao_titulo">Tudo na sua mão</h2>
+                                    <p class="descricao_texto">Botões de Seção: "Piano Section", "Organ Section", "Synth
+                                        Section", para ativar ou desativar as diferentes partes do som, sem menus
+                                        complicados.</p>
+
+                                    <a class="container_botao secundario_botao" href="#">Simule Aqui</a>
+                                </div>
+
+
+
+                                <img class="secundario_imagem"
+                                    src="https://www.stars-music.com/medias/nord/stage-4-73-hp-hd-5-195943.jpg"
+                                    alt=" imagem dos comandos do teclado">
+
+
+                            </section>
+                        </div>
+                        <!-- quarta section -->
+                        <div class="parte4">
+                            <section class="container secundario">
+
+                                <img class="quarta_imagem"
+                                    src="https://www.nordkeyboards.com/_next/image/?url=https%3A%2F%2Fassets.nordkeyboards.com%2Fnord-assets-prod%2Fmedia%2Foriginal_images%2Fh9VqaM13%2FKevin_Powell.png&w=1920&q=75"
+                                    alt="imagem de um músico tocando em banda">
+
+
+                                <div class="container_descricao">
+
+                                    <h2 class="descricao_titulo">Chegou a hora de tocar no nível que você sempre quis.</h2>
+
+                                    <p class="descricao_texto">Um Teclado para qualquer ocasião e estilo musical.</p>
+
+                            </section>
+                        </div>
+
+                        <section class="dispositivos">
+
+                            <h2 class="dispositivos_titulo">Todos os nossos produtos</h2>
+
+                            <ul class="dispositivos_lista">
+
+                                <li>
+                                    <img src="https://assets.nordkeyboards.com/nord-assets-prod/media/documents/N3P_logo_Xheight.svg"
+                                        alt=" ícone de nord bateria">
+                                    <h3 class="lista_item">Baterias</h3>
+                                </li>
+
+                                <li>
+                                    <img src="https://assets.nordkeyboards.com/nord-assets-prod/media/documents/NLA1_logo_Xheight.svg"
+                                        alt=" ícone de sintetizador">
+                                    <h3 class="lista_item">Sintetizadores</h3>
+                                </li>
+
+                                <li>
+                                    <img src="https://assets.nordkeyboards.com/nord-assets-prod/media/documents/NE6_logo_Xheight.svg"
+                                        alt=" ícone de piano digital">
+                                    <h3 class="lista_item">Pianos</h3>
+                                </li>
+
+
+
+                            </ul>
+
+
+
+                        </section>
+
+                        <footer class="rodape">
+
+                            <img class="rodape_logo"
+                                src="https://sso.caixaverso.ada.tech/_next/image?url=https%3A%2F%2Fada-caixaverso-workspace-prd-bucket.s3.sa-east-1.amazonaws.com%2Fpublic%2Fworkspace%2Fpublic%2Flogo-regular.png&w=128&q=75"
+                                alt="logo da Caixa">
+
+                            <a class="container_botao secundario_botao" href="../../index.html">Voltar</a>
+
+                            <ul class="rodape_lista">
+
+
+                                <li class="lista_link"><a href="#">Contrato de financiamento</a></li>
+                                <li class="lista_link"><a href="#">Política de privacidade</a></li>
+                                <li class="lista_link"><a href="#">Porteção de dados no Brasil</a></li>
+
+                                <li class="lista_link"><a href="#">Ajuda</a></li>
+
+
+                            </ul>
+
+                            <p class="rodape_texto">© 2025 Este ambiente online destina-se exclusivamente a treinamento
+                                educacional, não envolvendo qualquer atividade comercial. As imagens exibidas foram
+                                coletadas do site oficial da Nord, marca pertencente à Clavia DMI AB, e de mecanismos de
+                                busca, sendo todas elas regidas pelas respectivas leis de direitos autorais.</p>
+
+
+
+                        </footer>
+
+                    </article>
+
+
+
+
+
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Zé do Código. Todos os direitos reservados.</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,376 @@
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zé do Código</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../../assets/logo_ico.png" type="image/x-icon">
+    
+    <style>
+        /* =========================================
+           ESTILOS GERAIS DO PORTFÓLIO (Zé do Código)
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #FFCC00;/*------------------------------cor do cabeçalho*/
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1rem 2rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: black;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            padding: 10px 30px 10px 30px;
+            border: black 1px solid;
+            border-radius: 8px;
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            margin: 0 0 20px 0;
+            color: black;
+            background-color: #FFCC00;
+
+        }
+
+        .nav-links a:hover {
+            color: white;
+            background-color:black;
+        }
+
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            width: 100%;
+        }
+
+        .employee-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .employee-header h1 {
+            font-size: 2.5rem;
+            /*color: black;*/
+            margin-bottom: 0.5rem;
+        }
+
+        .employee-header p {
+            color: #6b7280;
+            font-size: 1.1rem;
+        }
+
+        /* --- AQUI ESTÁ A CORREÇÃO DA ROLAGEM --- */
+        
+        /* 1. O container externo precisa ter altura fixa */
+        .project-demo {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            height: 600px; /* Altura fixa para simular a tela */
+            max-height: 80vh; /* Garante que caiba na tela do usuário */
+            overflow: hidden;
+        }
+
+        .demo-frame {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            height: 100%; /* Ocupa 100% dos 600px definidos acima */
+            overflow: hidden;
+            position: relative;
+            background-color: #f8f9fa; /* Cor de fundo do site interno */
+        }
+
+        /* =========================================
+           ESTILOS DO SITE INTERNO (MARCELLO)
+           ISOLADOS DENTRO DE .demo-content
+           ========================================= */
+        
+        .demo-content {
+            /* 2. O conteúdo interno deve rolar */
+            height: 100%;
+            overflow-y: scroll; /* Força a barra de rolagem vertical */
+            scroll-behavior: smooth;
+            
+            /* Variáveis do Marcello */
+            --primary-yellow: #FFCC00;
+            --primary-black: #000000;
+            --bg-white: #ffffff;
+            --bg-gray: #f8f9fa;
+            --text-dark: #1e1e1e;
+            --max-width: 900px;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            
+            /* Reset e Fontes */
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 3. Estilização da Barra de Rolagem (Para ficar bonita) */
+        .demo-content::-webkit-scrollbar {
+            width: 10px;
+        }
+        .demo-content::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        .demo-content::-webkit-scrollbar-thumb {
+            background: #FFCC00; /* Amarelo do tema do Marcello */
+            border-radius: 5px;
+            border: 2px solid #f1f1f1;
+        }
+        .demo-content::-webkit-scrollbar-thumb:hover {
+            background: #d4a000; 
+        }
+
+        /* Header interno */
+        .demo-content header {
+            background-color: var(--primary-yellow);
+            color: var(--primary-black);
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            flex-shrink: 0; /* Impede o header de encolher na rolagem */
+        }
+
+        .demo-content header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .demo-content .subtitle {
+            font-size: 1.2rem;
+            font-weight: 600;
+            opacity: 0.9;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .demo-content .subtitle span:not(:last-child)::after {
+            content: "•";
+            margin-left: 15px;
+            opacity: 0.5;
+        }
+
+        /* Main interno */
+        .demo-content main {
+            flex: 1 0 auto; /* Permite crescer mas não encolher demais */
+            width: 100%;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: -40px;
+            margin-bottom: 40px;
+            z-index: 1;
+        }
+
+        .demo-content .imagem_perfil {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: solid 4px black;
+            z-index: 10;
+            margin-bottom: 20px;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .demo-content .card {
+            background: var(--bg-white);
+            width: 100%;
+            max-width: var(--max-width);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 50px;
+            border-top: 5px solid var(--primary-black);
+        }
+
+        .demo-content .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-black);
+            border-bottom: 2px solid var(--primary-yellow);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        .demo-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .demo-content .highlight {
+            background-color: rgba(255, 204, 0, 0.3);
+            padding: 0 4px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #000;
+        }
+
+        /* Footer interno */
+        .demo-content footer {
+            background-color: var(--primary-black);
+            color: var(--primary-yellow);
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            width: 100%;
+            flex-shrink: 0; /* Impede o footer de sumir */
+        }
+
+        /* Responsividade interna */
+        @media (max-width: 768px) {
+            .demo-content header h1 { font-size: 1.8rem; }
+            .demo-content .card { padding: 30px 20px; }
+            .demo-content p { font-size: 1rem; text-align: left; }
+        }
+
+        /* Footer Geral (Zé do Código) */
+        body > footer {
+            background-color: #111827;
+            color: #9ca3af;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: auto;
+        }
+		
+		.logo_ze{
+			width:5%;
+		
+		}
+		
+		footer p{
+			color:#FFCC00;
+		}
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+			<img class="logo_ze" src="../../assets/logo.png">
+            <div class="logo">Zé do Código</div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Voltar</a></li>
+               
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="employee-header">
+            <h1>Marcello Jorge</h1>
+            <p>Projeto: Perfil Profissional</p>
+        </section>
+
+        <section class="project-demo">
+            <div class="demo-frame">
+                <div class="demo-content">
+                    
+                    <header>
+                        <h1>Marcello Miguel Jorge</h1>
+                        <div class="subtitle">
+                          <span>Geógrafo</span>
+                          <span>Professor</span>
+                          <span>Administrador</span>
+                        </div>
+                    </header>
+                    
+                    <main>
+                        <img class="imagem_perfil" src="../../assets/marcelo_foto.jpg" alt="Foto de Perfil">
+                    
+                        <section class="card">
+                          <h2 class="section-title">Sobre Mim</h2>
+                          
+                          <p>
+                            Sou profissional com sólida experiência em gestão e educação, atualmente atuando como
+                            <span class="highlight">Gerente de Varejo PJ na Caixa Econômica Federal</span>, onde desenvolvo estratégias voltadas para o
+                            atendimento corporativo e fortalecimento de relacionamentos comerciais.
+                          </p>
+                    
+                          <p>
+                            Também possuo experiência como <strong>Professor de 1º e 2º graus</strong> na Prefeitura Municipal de São Paulo,
+                            que contribuiu para minha capacidade de comunicação e desenvolvimento de pessoas.
+                          </p>
+                    
+                          <p>
+                            Possuo <strong>MBA em Gestão Empresarial pela Fundação Getúlio Vargas</strong> e sou Bacharel em <strong>Geografia pela
+                            Universidade de São Paulo</strong>, formações que ampliaram minha visão estratégica e capacidade
+                            analítica.
+                          </p>
+                    
+                          <p>
+                            Ao longo da carreira, construí competências em gestão de equipes, relacionamento com clientes e
+                            planejamento estratégico, sempre com foco em resultados e inovação.
+                          </p>
+
+                          <p>
+                            <strong>Observação:</strong> Este perfil destaca a versatilidade profissional entre o setor público, 
+                            educacional e bancário, unindo teoria geográfica com prática administrativa de alto nível.
+                          </p>
+                        </section>
+                    </main>
+                    
+                    <footer>
+                        &copy; 2025 Marcello Miguel Jorge — Apresentação Profissional
+                    </footer>
+
+                </div>
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Zé do Código. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

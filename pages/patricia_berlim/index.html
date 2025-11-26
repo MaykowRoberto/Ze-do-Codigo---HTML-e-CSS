@@ -1,0 +1,408 @@
+<html lang="pt-BR">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zé do Código</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="../..assets/logo_ico.png" type="image/x-icon">
+
+
+
+    <style>
+      /* =========================================
+            ESTILOS GERAIS DO PORTFÓLIO (Zé do código)
+            ========================================= */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f3f4f6;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      header {
+        background-color: #FFCC00;
+        /*------------------------------cor do cabeçalho*/
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 1rem 2rem;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .logo {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: black;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+            text-decoration: none;
+            padding: 10px 30px 10px 30px;
+            border: black 1px solid;
+            border-radius: 8px;
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            margin: 0 0 20px 0;
+            color: black;
+            background-color: #FFCC00;
+
+        }
+
+        .nav-links a:hover {
+            color: white;
+            background-color:black;
+        }
+
+      main {
+        flex: 1;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        width: 100%;
+      }
+
+      .employee-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .employee-header h1 {
+        font-size: 2.5rem;
+        /*color: black;*/
+        margin-bottom: 0.5rem;
+      }
+
+      .employee-header p {
+        color: #6b7280;
+        font-size: 1.1rem;
+      }
+
+      /* --- AQUI ESTÁ A CORREÇÃO DA ROLAGEM --- */
+
+      /* 1. O container externo precisa ter altura fixa */
+      .project-demo {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        height: 600px;
+        /* Altura fixa para simular a tela */
+        max-height: 80vh;
+        /* Garante que caiba na tela do usuário */
+        overflow: hidden;
+      }
+
+      .demo-frame {
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        height: 100%;
+        /* Ocupa 100% dos 600px definidos acima */
+        overflow: hidden;
+        position: relative;
+        background-color: #f8f9fa;
+        /* Cor de fundo do site interno */
+      }
+
+      /* =========================================
+            ESTILOS DO SITE INTERNO (Patricia)
+            ISOLADOS DENTRO DE .demo-content
+            ========================================= */
+
+
+      .demo-content {
+        /* 2. O conteúdo interno deve rolar */
+        height: 100%;
+        overflow-y: scroll;
+        /* Força a barra de rolagem vertical */
+        scroll-behavior: smooth;
+
+
+        /* 3. Estilização da Barra de Rolagem (Para ficar bonita) */
+        .demo-content::-webkit-scrollbar {
+          width: 10px;
+        }
+
+        .demo-content::-webkit-scrollbar-track {
+          background: #f1f1f1;
+        }
+
+        .demo-content::-webkit-scrollbar-thumb {
+          background: #FFCC00;
+          /* Amarelo do tema do Marcello */
+          border-radius: 5px;
+          border: 2px solid #f1f1f1;
+        }
+
+        .demo-content::-webkit-scrollbar-thumb:hover {
+          background: #d4a000;
+        }
+
+        body {
+          margin: 0;
+          font-family: Arial, sans-serif;
+          background-color: #FFCC00;
+          /* fundo amarelo */
+          color: black;
+          /* letras pretas */
+        }
+
+        /* Banner */
+        .banner {
+          text-align: center;
+          padding: 40px 20px;
+          background-color: #FFCC00;
+        }
+
+        .banner h1 {
+          font-size: 2.5em;
+          margin-bottom: 10px;
+        }
+
+        .banner p {
+          font-size: 1.2em;
+          margin-bottom: 20px;
+        }
+
+        .banner a {
+          background-color: black;
+          color: #FFCC00;
+          padding: 12px 20px;
+          text-decoration: none;
+          font-weight: bold;
+          border-radius: 6px;
+        }
+
+        .banner a:hover {
+          background-color: #333;
+          color: white;
+        }
+
+        /* Cabeçalho */
+        header {
+          background-color: black;
+          color: #FFCC00;
+          padding: 15px;
+        }
+
+        nav {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+        }
+
+        nav a {
+          color: #FFCC00;
+          text-decoration: none;
+          font-weight: bold;
+        }
+
+        nav a:hover {
+          text-decoration: underline;
+        }
+
+        /* Layout principal */
+        .container {
+          display: flex;
+          padding: 20px;
+          max-width: 1200px;
+          margin: auto;
+        }
+
+        aside {
+          flex: 1;
+          max-width: 250px;
+          background-color: #fff176;
+          /* tom mais claro de amarelo */
+          padding: 20px;
+          border-radius: 8px;
+          margin-right: 20px;
+        }
+
+        main {
+          flex: 3;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .post {
+          background-color: white;
+          padding: 15px;
+          border-radius: 8px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .post h2 {
+          margin-top: 0;
+          color: black;
+        }
+
+        /* Formulário */
+        form {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          background-color: white;
+          padding: 15px;
+          border-radius: 8px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 6px;
+          font-size: 1em;
+        }
+
+        button {
+          background-color: black;
+          color: #FFCC00;
+          border: none;
+          padding: 10px;
+          border-radius: 6px;
+          cursor: pointer;
+          font-weight: bold;
+        }
+
+        button:hover {
+          background-color: #333;
+          color: white;
+        }
+
+        /* Rodapé */
+        footer {
+          background-color: black;
+          color: #FFCC00;
+          text-align: center;
+          padding: 20px;
+          margin-top: 30px;
+        }
+    </style>
+  </head>
+
+  <body>
+
+
+    <header>
+      <nav>
+
+        <img style="width:5%" src="../../assets/logo.png" />
+
+        <div class="logo">Zé do Código</div>
+
+        <ul class="nav-links">
+          <li><a href="../../index.html">Voltar</a></li>
+
+        </ul>
+      </nav>
+
+    </header>
+
+    <main>
+      <section class="employee-header">
+        <h1>Patrícia Berlim</h1>
+        <p>Projeto: Agência de Desenvolvimento Web - Patrícia Berlim</p>
+      </section>
+
+      <section class="project-demo">
+        <div class="demo-frame">
+          <div class="demo-content">
+
+            <!-- Banner -->
+            <div class="banner corpo">
+              <h1>Agência de Desenvolvimento Web, ORGANIZAÇÃO TABAJARA</h1>
+              <p>Soluções digitais para impulsionar seu negócio, esta perdido?
+                Sem criatividade?
+                Sem motivação?
+                Basta de se estressar clique no botão orçamento, que vamos te ajudar!</p>
+              <aormularioSolicite um orçamento</a>
+            </div>
+
+            <!-- Cabeçalho -->
+            <header>
+              <nav>
+                <a href="#inicio">Voltar</a>
+                <a href="#tecnologia">Tecnologia</a>
+                <a href="#contato">Contato</a>
+              </nav>
+            </header>
+
+            <main>
+              <div class="post">
+                <h2>Desenvolvimento Web</h2>
+                <p>Criamos sites modernos, responsivos, otimizados e sem bla bla bla, garantindo a melhor experiência para
+                  seus usuários.</p>
+              </div>
+
+              <div class="post">
+                <h2>Web Design</h2>
+                <p>Designs criativos e funcionais para destacar sua marca e atrair clientes, com dinheiro não só os
+                  ferrados.</p>
+              </div>
+
+              <div class="post">
+                <h2>Programação Sob Medida</h2>
+                <p>Aqui, o código é tão bem ajustado que os bugs nem encontram brecha para entrar!</p>
+              </div>
+
+              <!-- Formulário -->
+              <form id="formulario">
+                <h3>Solicite um Orçamento</h3>
+                <input type="text" placeholder="Seu nome" required>
+                <input type="email" placeholder="Seu e-mail" required>
+                <textarea rows="4" placeholder="Descreva seu projeto..." required></textarea>
+                <button type="submit">Enviar</button>
+              </form>
+            </main>
+
+            <!-- Rodapé -->
+            <footer>
+              <p>Entre em contato: contato@organizacaotabajara.com | Telefone: (41) 99999-9999</p>
+              <p>&copy; 2025 Agência de Desenvolvimento Web, ORGANIZAÇÃO TABAJARA. Todos os direitos reservados.</p>
+            </footer>
+
+            <!-- Botão Voltar -->
+            <div style="text-align:center; margin:20px;">
+              <button onclick="history.back()"
+                style="background-color:black; color:#FFCC00; padding:10px 20px; border:none; border-radius:6px; font-weight:bold; cursor:pointer;">
+                Voltar
+                <a href="../../index.html" class="btn-voltar"></a>
+              </button>
+            </div>
+      </section>
+    </main>
+
+
+    <footer style="color: #FFCC00; background-color: black; text-align: center;padding: 1.5rem;margin-top: auto;">
+      <p>&copy; 2025 Zé do Código. Todos os direitos reservados.</p>
+    </footer>
+  </body>
+
+</html>

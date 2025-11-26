@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zé do Código - Portfólio Jéssica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ESTILOS GERAIS DO PORTFÓLIO (Zé do Código)*/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #FFCC00;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1rem 2rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: black;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            padding: 10px 30px 10px 30px;
+            border: black 1px solid;
+            border-radius: 8px;
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            margin: 0 0 20px 0;
+            color: black;
+            background-color: #FFCC00;
+        }
+
+        .nav-links a:hover {
+            color: white;
+            background-color: black;
+        }
+
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            width: 100%;
+        }
+
+        .employee-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .employee-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .employee-header p {
+            color: #6b7280;
+            font-size: 1.1rem;
+        }
+
+        
+        .project-demo {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            height: 600px;
+            max-height: 80vh;
+            overflow: hidden;
+        }
+
+        .demo-frame {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            background-color: white;
+        }
+
+        .demo-content {
+            height: 100%;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+           
+            position: relative;
+        }
+
+        .demo-content::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .demo-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .demo-content::-webkit-scrollbar-thumb {
+            background: #FFCC00;
+            border-radius: 5px;
+            border: 2px solid #f1f1f1;
+        }
+
+        .demo-content::-webkit-scrollbar-thumb:hover {
+            background: #d4a000;
+        }
+
+        body>footer {
+            background-color: #111827;
+            color: #9ca3af;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: auto;
+        }
+
+        .logo_ze {
+            width: 50px; 
+            height: auto;
+        }
+
+        footer p {
+            color: #FFCC00;
+        }
+
+        /* 
+           ESTILOS ISOLADOS DO SITE DA JÉSSICA
+          
+            */
+        
+        /*  dentro do Wrapper */
+        .jessica-wrapper {
+            font-family: "Segoe UI", Arial, sans-serif;
+            width: 100%;
+            background-color: #fff;
+        }
+
+        .jessica-wrapper * {
+            box-sizing: border-box;
+        }
+
+        
+        .jessica-wrapper header {
+            background-color: #FFCC00;
+            color: #000;
+            padding: 20px 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.8rem;
+           
+            box-shadow: none;
+            margin: 0;
+        }
+
+        .jessica-wrapper h1 {
+            font-size: 2em; 
+            margin: 0;
+        }
+
+        /*  para não pegar no logo do Zé */
+        .jessica-wrapper img {
+            border: 5px solid #FFCC00;
+            border-radius: 50%;
+            display: block;
+            margin: 10px auto 10px auto;
+            max-width: 150px; 
+        }
+
+        /* Container Principal da Jéssica */
+        .jessica-wrapper .pagina-container {
+            display: flex;
+            min-height: 70vh;
+            padding: 20px;
+            gap: 20px;
+            background: #fff;
+            width: 100%;
+        }
+
+        /* Perfil Lateral */
+        .jessica-wrapper .perfil-lateral {
+            width: 30%;
+            min-width: 250px;
+        }
+
+        .jessica-wrapper .caixa {
+            background-color: #FFCC00;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            color: #000;
+        }
+
+        .jessica-wrapper .caixa h2, 
+        .jessica-wrapper .caixa h3 {
+            margin: 0;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        /* Conteúdo Principal */
+        .jessica-wrapper .conteudo-principal {
+            flex: 1;
+        }
+
+        .jessica-wrapper .caixa-sobre {
+            background: #fff;
+            border: 2px solid #FFCC00;
+            color: #000;
+            line-height: 1.6;
+            font-size: 1rem;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .jessica-wrapper .caixa-sobre p {
+            margin-bottom: 1em;
+        }
+
+        .jessica-wrapper .caixa-sobre a {
+            color: #000;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        
+        .jessica-wrapper .botoes-centro {
+            text-align: center;
+            margin: 25px 0;
+            padding-bottom: 20px;
+        }
+
+        .jessica-wrapper .botao-voltar {
+            padding: 10px 25px;
+            background-color: #000;
+            color: #FFCC00;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s;
+            border: none;
+            box-shadow: none;
+        }
+
+        .jessica-wrapper .botao-voltar:hover {
+            background-color: #FFCC00;
+            color: #000;
+            transition: 0.3s; 
+        }
+
+        /* Rodapé da Jéssica */
+        .jessica-wrapper footer {
+            background-color: #000;
+            color: #FFCC00;
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .jessica-wrapper footer p {
+            color: #FFCC00;
+            margin: 0;
+        }
+
+        /* Responsividade Interna */
+        @media (max-width: 768px) {
+            .jessica-wrapper .pagina-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .jessica-wrapper .perfil-lateral {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img class="logo_ze" src="../../assets/logo.png" alt="Logo Zé">
+            <div class="logo">Zé do Código</div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Voltar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="employee-header">
+            <h1>Jéssica Araújo</h1>
+            <p>Projeto: Perfil Profissional</p>
+        </section>
+
+        <section class="project-demo">
+            <div class="demo-frame">
+                <div class="demo-content">
+
+                    <div class="jessica-wrapper">
+                        
+                        <header>
+                            <h1>Jessica Souza</h1>
+                        </header>
+
+                        <main class="pagina-container">
+                            <aside class="perfil-lateral">
+                                <img src="../../assets/jessica_araujo.jpg" alt="Foto Perfil">
+                                <div class="caixa caixa-formacao">
+                                    <h2>Formada em Letras</h2>
+                                </div>
+
+                                <div class="caixa caixa-formacao">
+                                    <h2>Pos graduada em Literatura e Ensino</h2>
+                                </div>
+                                <div class="caixa caixa-formacao">
+                                    <h2>Ha 16 anos trabalhando com o público</h2>
+                                </div>
+
+                                <div class="caixa caixa-hobby">
+                                    <h2>Ama contemplar a vida</h2>
+                                </div>
+                            </aside>
+
+                            <section class="conteudo-principal">
+                                <div class="caixa caixa-sobre">
+                                    <p>
+                                        Sou esposa e mãe.<br />
+                                        Casada há 12 anos com a pessoa mais inteligente em geografia.
+                                        Mãe de uma princesa linda de 2 anos e que sonha em ser bailarina, e de um
+                                        garotinho de 1 ano.
+                                        Formada em Letras pela Universidade Federal da Paraíba, com pós graduação em
+                                        Literatura e Ensino
+                                        pela Universidade Federal do Rio Grande do Norte.
+                                        Trabalho com atendimento ao público desde 2009, inicialmente numa empresa de
+                                        varejo nacional,
+                                        seguido do Departamento Estadual de Trânsito/PB e atualmente na
+                                        <a href="https://www.caixa.gov.br/" target="_blank">CAIXA ECONÔMICA FEDERAL</a>
+                                        com atuação em várias áreas de conglomerado.
+                                        <br /><br />
+                                        Atuei como Instrutora de música por 5 anos de forma voluntária.
+                                        Amo estar em família, passear, ver o mar, contemplar a natureza, leituras, café,
+                                        bolos, chocolate,
+                                        observar a vida acontecer.
+                                        E também sou apaixonada por moda, design, música e risoto.
+                                    </p>
+                                </div>
+                            </section>
+                        </main>
+
+                        <div class="botoes-centro">
+                            <a class="botao-voltar" href="../../index.html">Voltar</a>
+                        </div>
+
+                        <footer>
+                            <p>© 2025 - Desenvolvido para portfólio pessoal</p>
+                        </footer>
+
+                    </div>
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Zé do Código. Todos os direitos reservados.</p>
+    </footer>
+</body>
+
+</html>
